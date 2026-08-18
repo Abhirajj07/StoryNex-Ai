@@ -23,7 +23,8 @@ import {
 import { getFormatPanelCount } from '../types/comic';
 
 function hasApiKey(settings: LLMSettings): boolean {
-  return Boolean(settings.apiKey && settings.apiKey.trim().length > 5);
+  const key = settings.apiKey || (import.meta.env.VITE_GROQ_API_KEY as string) || '';
+  return Boolean(key && key.trim().length > 5);
 }
 
 function safeJsonParse<T>(text: string, fallback: T): T {

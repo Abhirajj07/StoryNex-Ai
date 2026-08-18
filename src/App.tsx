@@ -32,8 +32,8 @@ function App() {
   // Persistence
   const [project, setProject] = useLocalStorage<StoryProject>('storynex-project', createEmptyProject());
   const [llmSettings, setLlmSettings] = useLocalStorage<LLMSettings>('storynex-llm-settings', {
-    apiKey: '',
-    model: 'llama-3.3-70b-versatile',
+    apiKey: (import.meta.env.VITE_GROQ_API_KEY as string) || '',
+    model: (import.meta.env.VITE_GROQ_MODEL as string) || 'llama-3.3-70b-versatile',
     temperature: 0.7,
     maxTokens: 4096,
   });

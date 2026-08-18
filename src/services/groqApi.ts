@@ -20,8 +20,9 @@ export async function callGroq(
   messages: GroqMessage[],
   settings: LLMSettings
 ): Promise<string> {
-  if (!settings.apiKey) {
-    throw new Error('No API key configured. Please set your Groq API key in Settings.');
+  const apiKey = settings.apiKey || (import.meta.env.VITE_GROQ_API_KEY as string) || '';
+  if (!apiKey) {
+    throw new Error('No API key configured. Please set your Groq API key in Settings or Vercel environment variables.');
   }
 
   const response = await fetch(GROQ_API_URL, {
