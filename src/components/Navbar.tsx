@@ -25,21 +25,27 @@ export default function Navbar({
   onLoadSample,
 }: NavbarProps) {
   return (
-    <nav className="navbar">
+    <nav className="navbar glass-navbar">
       <div className="navbar-left">
         <div className="navbar-brand">
-          <PanelTop size={28} className="brand-icon" />
+          <div className="brand-icon-wrapper">
+            <PanelTop size={22} className="brand-icon" />
+            <div className="brand-icon-glow"></div>
+          </div>
           <div className="brand-text">
-            <h1 className="brand-title">StoryNex AI</h1>
-            <span className="brand-subtitle">Script & Dialogue Generator</span>
+            <div className="brand-title-row">
+              <h1 className="brand-title">StoryNex<span className="brand-title-accent">AI</span></h1>
+              <span className="brand-badge-pill">STUDIO</span>
+            </div>
+            <span className="brand-subtitle">AI Comic Script & Dialogue Studio</span>
           </div>
         </div>
       </div>
 
       <div className="navbar-center">
-        <div className="project-title-badge">
-          <Sparkles size={14} />
-          <span>{project.title || 'Untitled Project'}</span>
+        <div className="project-title-badge glass-pill">
+          <Sparkles size={14} className="sparkle-icon" />
+          <span className="project-title-text">{project.title || 'Untitled Project'}</span>
         </div>
       </div>
 

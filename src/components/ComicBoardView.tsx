@@ -1,5 +1,4 @@
-
-import { LayoutGrid, Loader2, Sparkles } from 'lucide-react';
+import { Loader2, Sparkles } from 'lucide-react';
 import type { ComicPanel, CharacterVoiceProfile, PipelineStatus } from '../types/comic';
 import ComicPanelCard from './ComicPanelCard';
 
@@ -21,22 +20,32 @@ export default function ComicBoardView({
   if (panels.length === 0 && pipelineStatus.stage === 'idle') {
     return (
       <div className="comic-board-empty">
-        <div className="empty-state-hero">
-          <LayoutGrid size={64} className="empty-icon-large" />
-          <h3>Your Comic Script Will Appear Here</h3>
-          <p>Set up your story, genre, and characters above, then click <strong>"Generate Comic Script"</strong> to bring your story to life panel by panel.</p>
-          <div className="empty-features">
-            <div className="empty-feature">
-              <Sparkles size={16} />
-              <span>Panel-by-panel breakdown</span>
+        <div className="empty-state-hero glass-card-hero">
+          <div className="hero-badge-container">
+            <span className="hero-glow-pill">
+              <Sparkles size={13} /> Powered by Next-Gen AI
+            </span>
+          </div>
+          <h2 className="empty-hero-brand">StoryNex <span className="gradient-text">AI</span></h2>
+          <h3 className="empty-hero-subtitle">Transform Your Story Ideas Into Panel-Ready Comic Scripts</h3>
+          <p>
+            Write your story concept on the left, extract or customize your character voices, and generate rich panel breakdowns with character-authentic dialogue and image-generation prompts.
+          </p>
+          <div className="empty-features-grid">
+            <div className="empty-feature-card glass-subcard">
+              <div className="feature-icon-badge">✨</div>
+              <h4>Story-Aware Breakdown</h4>
+              <p>Scene pacing, visual beats & mood direction</p>
             </div>
-            <div className="empty-feature">
-              <Sparkles size={16} />
-              <span>Character-authentic dialogue</span>
+            <div className="empty-feature-card glass-subcard">
+              <div className="feature-icon-badge">🎭</div>
+              <h4>Persistent Character Voice</h4>
+              <p>Dialogue tuned to unique speech quirks & dynamics</p>
             </div>
-            <div className="empty-feature">
-              <Sparkles size={16} />
-              <span>Image-gen-ready prompts</span>
+            <div className="empty-feature-card glass-subcard">
+              <div className="feature-icon-badge">🎨</div>
+              <h4>Image-Gen Prompts</h4>
+              <p>Ready to paste into Midjourney, DALL-E & more</p>
             </div>
           </div>
         </div>
